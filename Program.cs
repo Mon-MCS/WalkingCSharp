@@ -1,12 +1,52 @@
 ﻿using static System.Console;
-string name = "Bob";
-int messages = 3;
-decimal temperature = 34.4m;
+string studentName = "Sophia Johnson";
+string course1Name = "English 101";
+string course2Name = "Algebra 101";
+string course3Name = "Biology 101";
+string course4Name = "Computer Science I";
+string course5Name = "Psychology 101";
 
-Write("Hello, ");
-Write(name);
-Write("! You have ");
-Write(messages);
-Write(" in your inbox. The temperature is ");
-Write(temperature);
-Write(" celsius.");
+int course1Credit = 3;
+int course2Credit = 3;
+int course3Credit = 4;
+int course4Credit = 4;
+int course5Credit = 3;
+
+int gradeA = 4;
+int gradeB = 3;
+
+int course1Grade = gradeA;
+int course2Grade = gradeB;
+int course3Grade = gradeB;
+int course4Grade = gradeB;
+int course5Grade = gradeA;
+
+int totalCreditHours = 0;
+totalCreditHours += course1Credit;
+totalCreditHours += course2Credit;
+totalCreditHours += course3Credit;
+totalCreditHours += course4Credit;
+totalCreditHours += course5Credit;
+
+int totalGradePoints = 0;
+totalGradePoints += course1Credit * course1Grade;
+totalGradePoints += course2Credit * course2Grade;
+totalGradePoints += course3Credit * course3Grade;
+totalGradePoints += course4Credit * course4Grade;
+totalGradePoints += course5Credit * course5Grade;
+
+decimal gradePointAverage = (decimal) totalGradePoints/totalCreditHours;
+
+int leadingDigit = (int) gradePointAverage;
+int trailingDigits = (int) (gradePointAverage * 100) - (leadingDigit * 100);
+
+WriteLine($"Student: {studentName}\n");
+WriteLine("Course\t\t\t\tGrade\tCredit Hours");
+
+WriteLine($"{course1Name}\t\t\t{course1Grade}\t\t{course1Credit}");
+WriteLine($"{course2Name}\t\t\t{course2Grade}\t\t{course2Credit}");
+WriteLine($"{course3Name}\t\t\t{course3Grade}\t\t{course3Credit}");
+WriteLine($"{course4Name}\t{course4Grade}\t\t{course4Credit}");
+WriteLine($"{course5Name}\t\t{course5Grade}\t\t{course5Credit}");
+
+WriteLine($"\nFinal GPA:\t\t\t{leadingDigit}.{trailingDigits}");
